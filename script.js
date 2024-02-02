@@ -2,15 +2,15 @@
 
 //DON'T touch any other files!
 
-// Solution for task 1: Remove all break tags
+// Opgave 1: Fjern alle break tags
 function solution1() {
   const allBreaks = document.querySelectorAll("br");
-  allBreaks.forEach((breakTag) => {
-    breakTag.remove();
+  allBreaks.forEach((br) => {
+    br.remove();
   });
 }
 
-// Solution for task 2: Give all sections the class 'filled'
+// Opgave 2: Giv alle sektioner klassen 'filled'
 function solution2() {
   const allSections = document.querySelectorAll("section");
   allSections.forEach((section) => {
@@ -18,21 +18,22 @@ function solution2() {
   });
 }
 
-// Solution for task 3: Remove all elements that come before a section
+// Opgave 3: Fjern alle elementer, der kommer før en sektion
 function solution3() {
   const allSections = document.querySelectorAll("section");
-
   allSections.forEach((section) => {
     let currentElement = section.previousElementSibling;
     while (currentElement) {
-      const nextElement = currentElement.previousElementSibling;
       currentElement.remove();
-      currentElement = nextElement;
+      currentElement = currentElement.previousElementSibling;
     }
   });
 }
 
-// Uncomment the lines below to run the solutions
-solution1();
-solution2();
-solution3();
+// Kør løsningerne efter DOM'en er indlæst
+document.addEventListener("DOMContentLoaded", () => {
+  // Kald løsningerne her:
+  solution1();
+  solution2();
+  solution3();
+});
